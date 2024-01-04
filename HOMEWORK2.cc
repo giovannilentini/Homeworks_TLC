@@ -241,8 +241,8 @@ main(int argc, char* argv[])
     uint16_t port2 = 113;
 
     OnOffHelper onOffHelper2("ns3::TcpSocketFactory", InetSocketAddress(i1i2.GetAddress(0), port2));
-    onOffHelper2.SetAttribute("OnTime", StringValue("ns3::ConstantRandomVariable[Constant=1]"));
-    onOffHelper2.SetAttribute("OffTime", StringValue("ns3::ConstantRandomVariable[Constant=0]"));
+    onOffHelper2.SetAttribute("OnTime", StringValue("ns3::ExponentialRandomVariable[Mean=1]"));
+    onOffHelper2.SetAttribute("OffTime", StringValue("ns3::ExponentialRandomVariable[Mean=1]"));
     onOffHelper2.SetAttribute("PacketSize", UintegerValue(1797));
 
     ApplicationContainer onOffApp2 = onOffHelper2.Install(allNodes.Get(9));
@@ -259,8 +259,8 @@ main(int argc, char* argv[])
     uint16_t port3 = 114;
 
     OnOffHelper onOffHelper3("ns3::TcpSocketFactory", InetSocketAddress(i0i2.GetAddress(0), port3));
-    onOffHelper3.SetAttribute("OnTime", StringValue("ns3::ConstantRandomVariable[Constant=1]"));
-    onOffHelper3.SetAttribute("OffTime", StringValue("ns3::ConstantRandomVariable[Constant=0]"));
+    onOffHelper3.SetAttribute("OnTime", StringValue("ns3::ExponentialRandomVariable[Mean=1]"));
+    onOffHelper3.SetAttribute("OffTime", StringValue("ns3::ExponentialRandomVariable[Mean=1]"));
     onOffHelper3.SetAttribute("PacketSize", UintegerValue(1120));
 
     ApplicationContainer onOffApp3 = onOffHelper3.Install(allNodes.Get(6));
