@@ -289,7 +289,7 @@ main(int argc, char* argv[])
     echoClient.SetAttribute("PacketSize", UintegerValue(1210));
 
     ApplicationContainer clientApp = echoClient.Install(allNodes.Get(12)); // Nodo 0 come client
-    clientApp.Start(Seconds(1.0));
+    clientApp.Start(Seconds(0.0));
     clientApp.Stop(Seconds(15.0));
 
 
