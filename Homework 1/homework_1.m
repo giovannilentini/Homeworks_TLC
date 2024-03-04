@@ -18,19 +18,19 @@ var_value = var(signal);
 figure;
 subplot(2,1,1);
 %figure('Name', 'Esercizio 1');
-plot(signal, 'LineWidth',2);
+plot(signal);
 
-yline(mean_value,'-.b','Mean Value','LineWidth',4,'Color', 'red');
+yline(mean_value,'-.b','Mean Value','LineWidth',3,'Color', 'blue');
 xlim([0 2500]);
-ylim([-0.6, 0.8]);
+ylim([-1, 1]);
 
-xlabel('Time','FontSize',20);
-ylabel('Amplitude','FontSize',20);
-title('Signal','FontSize',20);
+xlabel('Time');
+ylabel('Amplitude');
+title('Signal');
 grid on;
 
-annotation("textbox", [0.15 0.608 0.3 0.3], "String", strcat("Energy: ", num2str(energy)), 'FitBoxToText','on', "BackgroundColor",[1 1 1]);
-annotation("textbox", [0.32 0.608 0.3 0.3], "String", strcat("Variance: ", num2str(var_value)), 'FitBoxToText','on', "BackgroundColor",[1 1 1]);
+annotation("textbox", [.15 .6 .3 .3], "String", strcat("Energy: ", num2str(energy)), 'FitBoxToText','on', "BackgroundColor",[1 1 1]);
+annotation("textbox", [.32 .6 .3 .3], "String", strcat("Variance: ", num2str(var_value)), 'FitBoxToText','on', "BackgroundColor",[1 1 1]);
 
 
 %Secondo Esercizio:
@@ -53,22 +53,19 @@ degraded_mean = mean(degraded_signal);
 degraded_var = var(degraded_signal);
 
 %come ultimo passaggio grafico tutto
-%figure;
-figure
-subplot(2,1,1);
+subplot(2,1,2);
 %figure('Name', 'Esercizio 2');
-plot(degraded_signal, 'LineWidth',2);
+plot(degraded_signal);
 
-yline(degraded_mean,'-.b','Mean Value','LineWidth',4,'Color', 'red');
+yline(degraded_mean,'-.b','Mean Value','LineWidth',3,'Color', 'blue');
+annotation("textbox", [.6 .6 .3 .3], "String", strcat("Energy: ", num2str(degraded_energy)), 'FitBoxToText','on', "BackgroundColor",[1 1 1]);
 xlim([0 2500]);
-ylim([-0.6, 0.6]);
+ylim([-1, 1]);
 
-xlabel('Time','FontSize',20);
-ylabel('Amplitude','FontSize',20);
-title('Degraded Signal','FontSize',20);
+xlabel('Time');
+ylabel('Amplitude');
+title('Degraded Signal');
 grid on;
-annotation("textbox", [0.75 0.6 0.3 0.3], "String", strcat("Degraded Energy: ", num2str(degraded_energy)), 'FitBoxToText','on', "BackgroundColor",[1 1 1]);
-
 
 
 
@@ -93,25 +90,25 @@ filter_input = rect(250, 1050, signal_length); % funzione creata da noi (in fond
 filtered_signal = conv(degraded_signal, filter_input, 'full');
 
 subplot(2,1,1);
-plot(filter_input,'LineWidth',3);
+plot(filter_input);
 
 xlim([0 length(filtered_signal)]);
 ylim([-0.7, 1.5]);
 
-xlabel('Time','FontSize',20);
-ylabel('Amplitude','FontSize',20);
-title('Filter Input','FontSize',20);
+xlabel('Time');
+ylabel('Amplitude');
+title('Filter Input');
 grid on;
 %ora posso graficare il segnale filtrato
 subplot(2,1,2);
-plot(filtered_signal, 'LineWidth',3);
+plot(filtered_signal);
 
 xlim([0 length(filtered_signal)]);
 ylim([-10, 10]);
 
-xlabel('Time','FontSize',20);
-ylabel('Amplitude','FontSize',20);
-title('Filtered Signal','FontSize',20);
+xlabel('Time');
+ylabel('Amplitude');
+title('Filtered Signal');
 grid on;
 
 
@@ -152,12 +149,12 @@ else
     disp(strcat("Il segnale ha un picco circa ogni ", num2str(distanza_picchi)));
 end
 figure;
-plot(signal,'LineWidth',2);
+plot(signal);
 xlim([0 siglen]);
-title("Distanza tra picchi",'FontSize',20);
+title("Distanza tra picchi");
 line([x_firstPeak, i], [peak, peak], "LineWidth", 5);
-xlabel("Time",'FontSize',20);
-ylabel("Amplitude",'FontSize',20);
+xlabel("Time");
+ylabel("Amplitude");
 grid on;
 
 %FINE ESERCIZIO 4
@@ -167,3 +164,9 @@ function y = rect(start, last, x)
     y = zeros(numel(x), 1);
     y(x>=start & x<=last) = 1;
 end
+
+
+
+
+
+
